@@ -14,7 +14,7 @@ EXPOSE 7474
 RUN mkdir -p /opt/neo4j
 WORKDIR /opt/neo4j
 RUN wget https://github.com/neo4j/neo4j/archive/2.3.zip
-RUN unzip 2.3.zip
+RUN unzip -qq 2.3.zip
 WORKDIR /opt/neo4j/neo4j-2.3
 RUN mvn clean install -DminimalBuild
 WORKDIR /opt/neo4j/neo4j-2.3/community/server
