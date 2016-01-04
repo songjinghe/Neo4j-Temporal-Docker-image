@@ -2,7 +2,7 @@ FROM daocloud.io/songjinghe/neo4j-temporal-runtime-env:master-init
 
 MAINTAINER Jinghe Song <support@daocloud.io>
 
-EXPOSE 7474
+#EXPOSE 7474
 RUN mkdir -p /opt/neo4j
 WORKDIR /opt/neo4j
 RUN wget -q https://github.com/neo4j/neo4j/archive/2.3.zip
@@ -11,6 +11,7 @@ WORKDIR /opt/neo4j/neo4j-2.3
 RUN mvn -B clean install
 #RUN mvn -B clean install -DminimalBuild
 WORKDIR /opt/neo4j/neo4j-2.3/community/server
-CMD mvn -B clean compile exec:java
+CMD ['mvn', 'clean', 'compile', 'exec:java']
+#CMD mvn -B clean compile exec:java
 #ENTRYPOINT ['mvn', 'clean', 'compile', 'exec:java']
 
