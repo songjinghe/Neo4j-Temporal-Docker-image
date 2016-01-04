@@ -5,10 +5,11 @@ MAINTAINER Jinghe Song <support@daocloud.io>
 EXPOSE 7474
 RUN mkdir -p /opt/neo4j
 WORKDIR /opt/neo4j
-RUN wget https://github.com/neo4j/neo4j/archive/2.3.zip
+RUN wget -q https://github.com/neo4j/neo4j/archive/2.3.zip
 RUN unzip -qq 2.3.zip
 WORKDIR /opt/neo4j/neo4j-2.3
-RUN mvn -B clean install -DminimalBuild
+RUN mvn -B clean install
+#RUN mvn -B clean install -DminimalBuild
 WORKDIR /opt/neo4j/neo4j-2.3/community/server
 CMD mvn -B clean compile exec:java
 #ENTRYPOINT ['mvn', 'clean', 'compile', 'exec:java']
