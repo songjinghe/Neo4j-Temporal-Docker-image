@@ -2,7 +2,7 @@ FROM daocloud.io/songjinghe/neo4j-temporal-runtime-env:master-init
 
 MAINTAINER Jinghe Song <support@daocloud.io>
 
-#EXPOSE 7474
+EXPOSE 7474
 RUN mkdir -p /opt/neo4j
 WORKDIR /opt/neo4j
 RUN wget -q https://github.com/neo4j/neo4j/archive/2.3.zip
