@@ -1,0 +1,10 @@
+FROM n3ziniuka5/ubuntu-oracle-jdk:14.04-JDK8
+
+MAINTAINER Jinghe Song <support@daocloud.io>
+
+RUN apt-get update && apt-get install -y \
+  graphviz maven nodejs-legacy npm make devscripts debhelper rpm unzip
+
+ADD settings.xml /etc/maven/settings.xml
+ENV MAVEN_OPTS '-Xmx512m -XX:MaxPermSize=256m'
+VOLUME /root/.m2
