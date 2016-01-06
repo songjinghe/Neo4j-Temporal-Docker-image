@@ -2,6 +2,8 @@ FROM daocloud.io/songjinghe/neo4j-temporal-runtime-env:master-init
 
 MAINTAINER Jinghe Song <support@daocloud.io>
 
+ADD origin-settings.xml /usr/share/maven/conf/settings.xml
+
 EXPOSE 7474
 RUN mkdir -p /opt/neo4j
 WORKDIR /opt/neo4j
