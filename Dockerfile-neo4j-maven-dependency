@@ -1,0 +1,12 @@
+FROM daocloud.io/songjinghe/neo4j-temporal-runtime-env:master-init
+
+MAINTAINER Jinghe Song <support@daocloud.io>
+
+ADD origin-settings.xml /usr/share/maven/conf/settings.xml
+
+RUN mkdir -p /opt/neo4j
+WORKDIR /opt/neo4j
+RUN wget -q https://github.com/neo4j/neo4j/archive/2.3.zip
+RUN unzip -qq 2.3.zip
+WORKDIR /opt/neo4j/neo4j-2.3
+RUN mvn -B dependency:resolve
