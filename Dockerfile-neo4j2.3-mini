@@ -11,7 +11,7 @@ RUN wget -q https://github.com/neo4j/neo4j/archive/2.3.zip
 RUN unzip -qq 2.3.zip
 WORKDIR /opt/neo4j/neo4j-2.3
 RUN mvn -q dependency:resolve
-RUN mvn -B install
+RUN mvn -B -o install
 #RUN mvn -B clean install -DminimalBuild
 WORKDIR /opt/neo4j/neo4j-2.3/community/server
 CMD ['mvn', 'clean', 'compile', 'exec:java']
