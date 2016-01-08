@@ -8,20 +8,41 @@
   <proxies></proxies>
   <servers></servers>
 
-  <mirrors></mirrors>
-  <profiles></profiles>
-  <repositories>
-    <repository>
-      <id>central</id>
-      <url>http://gotoNexus</url>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-      </releases>
-    </repository>
-  </repositories>
+  <profiles>
+    <profile>
+      <id>jdk-1.4</id>
+      <activation>
+        <jdk>1.4</jdk>
+      </activation>
+
+      <repositories>
+        <repository>
+            <id>central</id>
+            <url>http://gotoNexus</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </releases>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>http://gotoNexus</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </releases>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
 </settings>
