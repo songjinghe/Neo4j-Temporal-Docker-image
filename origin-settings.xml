@@ -10,4 +10,18 @@
 
   <mirrors></mirrors>
   <profiles></profiles>
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>http://gotoNexus</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+      </releases>
+    </repository>
+  </repositories>
 </settings>
