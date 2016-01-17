@@ -1,0 +1,23 @@
+FROM daocloud.io/songjinghe/neo4j-temporal-runtime-env:master-init
+
+MAINTAINER Jinghe Song <support@daocloud.io>
+
+ADD origin-settings.xml /usr/share/maven/conf/settings.xml
+
+EXPOSE 7474
+RUN mkdir -p /opt/neo4j
+WORKDIR /opt/neo4j
+
+RUN wget -q https://github.com/HuangLS/graph/archive/master.zip
+RUN unzip -qq master.zip
+WORKDIR /opt/neo4j/graph-master
+RUN mvn -B install -DskipTests
+
+RUN wget -q https://github.com/HuangLS/neo4j/archive/temporal-dev.zip
+RUN unzip -qq temporal-dev.zip
+WORKDIR /opt/neo4j/neo4j-temporal-dev
+RUN mvn -B dependency:resolve
+RUN mvn -B install -DskipTests -Dlicensing.skip=true -Dlicense.skip=true
+
+WORKDIR /opt/neo4j/neo4j-temporal-dev/community/server
+CMD ['mvn', 'clean', 'compile', 'exec:java']
