@@ -13,6 +13,7 @@ RUN unzip -qq master.zip
 WORKDIR /opt/neo4j/graph-master
 RUN mvn -B install -DskipTests
 
+WORKDIR /opt/neo4j
 RUN wget -q https://github.com/HuangLS/neo4j/archive/temporal-dev.zip
 RUN unzip -qq temporal-dev.zip
 WORKDIR /opt/neo4j/neo4j-temporal-dev
