@@ -9,15 +9,6 @@
   <proxies></proxies>
   <servers></servers>
 
-  <mirrors>
-    <mirror>
-      <id>nexus-osc</id>
-      <mirrorOf>*</mirrorOf>
-      <name>Nexus osc</name>
-      <url>http://maven.oschina.net/content/groups/public/</url>
-    </mirror>
-  </mirrors>
-
   <profiles>
     <profile>
       <id>jdk-1.4</id>
@@ -25,30 +16,18 @@
         <jdk>1.4</jdk>
       </activation>
 
-      <repositories>
-        <repository>
-          <id>nexus</id>
-          <name>local private nexus</name>
-          <url>http://maven.oschina.net/content/groups/public/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
       <pluginRepositories>
         <pluginRepository>
-          <id>nexus</id>
-          <name>local private nexus</name>
-          <url>http://maven.oschina.net/content/groups/public/</url>
+          <id>central</id>
+          <url>http://gotoNexus</url>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>daily</updatePolicy>
+          </snapshots>
           <releases>
             <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
           </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
         </pluginRepository>
       </pluginRepositories>
     </profile>
